@@ -28,25 +28,32 @@ public class CarrinhoDeCompras {
     }
     public double calcularValorTotal(){
         double valorTotal = 0;
+        double valorTotalItem = 0;
         int qtd;
         double valorUnitario;
         List<Item> somaDosValores = new ArrayList<>();
         for(Item i :ItemCarrinho){
             qtd= i.getQuantidade();
             valorUnitario =i.getPreco();
-            valorTotal = qtd*valorUnitario;
+            valorTotalItem = qtd*valorUnitario;
+            valorTotal =valorTotal+ valorTotalItem;
         }
         return valorTotal;
+
     }
-   public void exibirItens(){
-        System.out.println(ItemCarrinho);
+   public List<Item> exibirItens(){
+
+        return ItemCarrinho;
 
     }
 
     public static void main(String[] args) {
         CarrinhoDeCompras carrinhoDeCompras = new CarrinhoDeCompras();
         carrinhoDeCompras.adicionarItem("Abobora", 2.99, 1);
+        carrinhoDeCompras.adicionarItem("Feijao", 6.99, 3);
         carrinhoDeCompras.exibirItens();
-        carrinhoDeCompras.calcularValorTotal();
+        System.out.println("O valor no carrinho é de "+ carrinhoDeCompras.calcularValorTotal());
+        System.out.println("Os itens no carrinho de compra são: \n"+ carrinhoDeCompras.exibirItens()+ "\n");
+
     }
 }
