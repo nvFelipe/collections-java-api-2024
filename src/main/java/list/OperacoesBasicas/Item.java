@@ -1,4 +1,4 @@
-package main.OperacoesBasicas.list;
+package main.java.list.OperacoesBasicas;
 
 public class Item {
     public String nome;
